@@ -28,6 +28,7 @@ function App() {
           name: "SMTP Article by DevYoma",
           // Sender's email address
           email: import.meta.env.VITE_SMTP_PROJECT_SENDER_EMAIL,
+          // email: "xxxxxxxxx" 👈put your Project Sender Address here
         },
         // Recipient's details
         recipients: {
