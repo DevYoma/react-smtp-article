@@ -54,7 +54,7 @@ function App() {
 
   return (
     <div className="app">
-      <h2 className="app">Email Sending Form</h2>
+      <h2 className="">Email Sending Form</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="emailInput">Email:</label> <br />
