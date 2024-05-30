@@ -37,5 +37,14 @@ This repository provides a comprehensive guide and code examples to get you star
     ```bash
     npm install
     ```
+## Run the Application Locally
 
-By following these steps, you'll have a local copy of the `react-smtp-express-article` repository with all the necessary dependencies installed. You can now start developing and running your React.js application locally.
+5. To run the application locally, use the following command:
+
+    ```bash
+    npm run dev
+    ```
+
+6. The server will start and the application will be available at `http://localhost:5173`.
+
+By following these steps, you'll have a local copy of the `react-smtp-express-article` repository with all the necessary dependencies installed. You can now see SMTP Express in action and refer to the codebase as documentation for implementing it in your own projects.
