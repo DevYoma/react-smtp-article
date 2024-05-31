@@ -37,6 +37,34 @@ This repository provides a comprehensive guide and code examples to get you star
     ```bash
     npm install
     ```
+    
+## Set Up a Project on the SMTP Express Platform
+
+To use SMTP Express, you need to set up a project on the SMTP Express platform. Here are the basics:
+
+1. Create an account or log in to the [SMTP Express platform](https://smtpexpress.com/).
+2. Create a new project.
+3. Get the required keys for your project.
+
+For detailed instructions on setting up a project, please refer to the [section of my article](https://dev.to/devyoma/send-emails-in-your-react-js-app-with-smtp-express-1664#project-setup) where I explain this process.
+
+## Set Up Environment Variables
+
+To use SMTP Express, you need to generate some keys on the SMTP Express platform and add them to your environment variables.
+
+- **Project ID**: `VITE_SMTP_PROJECT_ID`
+- **Project Secret**: `VITE_SMTP_PROJECT_SECRET`
+
+These keys will be generated on the SMTP Express platform. Add them to the `smtp.ts` file located in the appropriate folder.
+
+Another important environment variable needed for the project is:
+
+- **Project Sender Email**: `VITE_SMTP_PROJECT_SENDER_EMAIL`
+
+This variable is located in the `App.tsx` file.
+
+For more details on generating these keys and setting up the environment variables, please refer to the section of the [article](https://dev.to/devyoma/send-emails-in-your-react-js-app-with-smtp-express-1664#apiKey) where I discuss using React with SMTP Express.
+
 ## Run the Application Locally
 
 5. To run the application locally, use the following command:
