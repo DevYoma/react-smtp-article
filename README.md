@@ -52,8 +52,8 @@ For detailed instructions on setting up a project, please refer to the [section 
 
 To use SMTP Express, you need to generate some keys on the SMTP Express platform and add them to your environment variables.
 
-- **Project ID**: `VITE_SMTP_PROJECT_ID`
-- **Project Secret**: `VITE_SMTP_PROJECT_SECRET`
+- **projectId**: `VITE_SMTP_PROJECT_ID`
+- **projectSecret**: `VITE_SMTP_PROJECT_SECRET`
 
 These keys will be generated on the SMTP Express platform. Add them to the `smtp.ts` file located in the appropriate folder.
 
