@@ -49,6 +49,8 @@ function App() {
       // You can console.log the error to know what went wrong
       console.log(error);
       setLoading(false);
+    }finally{
+      setLoading(false)
     }
   };
 

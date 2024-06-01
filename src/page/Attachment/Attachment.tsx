@@ -4,25 +4,21 @@ import { smtpexpressClient } from "../../services/smtp";
 
 const Attachment = () => {
     const [email, setEmail] = useState("");
-    const [file, setFile] = useState({});
+    const [file, setFile] = useState<File>();
     const [loading, setLoading] = useState(false);
 
     const handleChange = (event: any) => {
-        setFile(event.target.files[0])
+        setFile(event.target.files?.[0])
     }
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
+
+        if(!file) return;
         setLoading(true);
         // console.table({ email, file });
-        console.log(file);
-
-        
 
         try {
-            // const body = {
-            //     attachments: ["https://docs.google.com/document/d/1y4Ck3UCScNJfeB0R0OrO5krXew0py2HPQ1ODg9i_DR8/"],
-            // };
             await smtpexpressClient.sendApi.sendMail({
               subject: "Attachment Email",
               message: "Please find the attachment",
@@ -33,8 +29,11 @@ const Attachment = () => {
               recipients: {
                 email: email,
               },
-            //   attachments: body["attachments"],
-              attachments: ["https://docs.google.com/document/d/1y4Ck3UCScNJfeB0R0OrO5krXew0py2HPQ1ODg9i_DR8/"]
+              attachments: [file]
+              //   attachments: ["https://docs.google.com/document/d/1y4Ck3UCScNJfeB0R0OrO5krXew0py2HPQ1ODg9i_DR8/"]
+              // attachments: [
+              //   "https://firebasestorage.googleapis.com/v0/b/nfcs-1e729.appspot.com/o/IMG_20231008_125256_043.jpg?alt=media&token=d1f17f98-ed50-4a62-9357-dda16e0c5999",
+              // ],
             });
 
              // Notify user of successful submission

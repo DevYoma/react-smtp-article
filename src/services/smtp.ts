@@ -7,3 +7,4 @@ export const smtpexpressClient = createClient({
   projectSecret: import.meta.env.VITE_SMTP_PROJECT_SECRET
   // projectSecret: "xxxxxxx" 👈put your ProjectSecret here
 });
+  

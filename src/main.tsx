@@ -3,16 +3,20 @@ import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './index.css'
-import Attachment from './page/Attachment/Attachment.tsx';
+import { CalendarInvite } from './page/index.ts';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-  },
+  },  
+  // {
+  //   path: "/attachment", 
+  //   element: <Attachment />, // IN DEVELOPMENT
+  // },
   {
-    path: "/attachment", 
-    element: <Attachment />,
+    path: "/calander", 
+    element: <CalendarInvite />
   }
 ]);
 
