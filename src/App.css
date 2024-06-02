@@ -7,6 +7,7 @@
 .app {
   display: grid;
   place-items: center;
+  /* border: 1px solid red; */
 }
 
 .app h2 {
@@ -60,4 +61,21 @@ label {
 
 .app > form > button:hover {
   background-color: #0056b3;
+}
+
+.app > form{
+  margin-bottom: 4rem;
+}
+
+.appPageButtons{
+  width: 35%;
+  margin-bottom: 1rem;
+}
+
+
+@media screen and (max-width: 768px) {
+  .appPageButtons {
+    width: 80%;
+  }
+  
 }

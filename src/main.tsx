@@ -15,9 +15,13 @@ const router = createBrowserRouter([
   //   element: <Attachment />, // IN DEVELOPMENT
   // },
   {
-    path: "/calander", 
+    path: "/calendar", 
     element: <CalendarInvite />
-  }
+  },
+  // {
+  //   path: "*", 
+  //   element: <Error />
+  // }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

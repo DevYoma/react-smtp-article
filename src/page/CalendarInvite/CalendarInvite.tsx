@@ -2,8 +2,12 @@
 
 import { useState } from "react";
 import { smtpexpressClient } from "../../services/smtp";
+import PageButton from "../../components/PageButton/PageButton";
+import { useNavigate } from "react-router-dom";
+import ButtonContainer from "../../components/ButtonContainer/ButtonContainer";
 
 const CalendarInvite = () => {
+  const navigate = useNavigate();
   const [eventTitle, setEventTitle] = useState("");
   const [email, setEmail] = useState("")
   const [loading, setLoading] = useState(false)
@@ -28,8 +32,7 @@ const CalendarInvite = () => {
         },
         recipients: {
           email: email, // Recipient email address entered in the form
-          // Uncomment and fill the name field below 👇 if recipient's name is known
-          // name: "Team Member",
+          // name: "John Doe", // name of the recipient for personalization
         },
         calendarEvent: {
           title: eventTitle,
@@ -45,6 +48,8 @@ const CalendarInvite = () => {
       // Notify user of successful submission
       alert("Please check your email to view the sent message");
       setLoading(false)
+
+      // clear your form fields.
     } catch (error) {
       console.log(error);
       alert("Oops! Something went wrong. Please try again later.");
@@ -52,6 +57,14 @@ const CalendarInvite = () => {
     } finally{
       setLoading(false);
     }
+  }
+
+  const handleRouteToEmailForm = () => {
+    navigate('/');
+  }
+  
+  const handleRouteToAttachmentForm = () => {
+    navigate('/attachment')
   }
 
   return (
@@ -68,6 +81,7 @@ const CalendarInvite = () => {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            placeholder="johnDoe@gmail.com"
           />
         </div>
 
@@ -78,6 +92,7 @@ const CalendarInvite = () => {
             required
             value={eventTitle}
             onChange={(e) => setEventTitle(e.target.value)}
+            placeholder="Event Title"
           />
         </div>
 
@@ -122,6 +137,7 @@ const CalendarInvite = () => {
               type="url"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
+              placeholder="Meeting Link"
             />
           </div>
         )}
@@ -134,6 +150,7 @@ const CalendarInvite = () => {
               type="text"
               value={meetingLocation}
               onChange={(e) => setMeetingLocation(e.target.value)}
+              placeholder="Meeting Location address"
             />
           </div>
         )}
@@ -144,10 +161,26 @@ const CalendarInvite = () => {
             type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+            placeholder="Event Description"
           />
         </div>
         <button>{loading ? "Loading..." : "Send Calender Invite 🚀"}</button>
       </form>
+
+      <div className="appPageButtons">
+        <ButtonContainer>
+          <PageButton
+            text="Demo Basic Email"
+            onClick={handleRouteToEmailForm}
+          />
+
+          <PageButton
+            text="Try out Attachment Email form"
+            onClick={handleRouteToAttachmentForm}
+            disabled={true}
+          />
+        </ButtonContainer>
+      </div>
     </div>
   );
 }

@@ -1,8 +1,12 @@
 import { useState } from "react";
 import "./App.css";
 import { smtpexpressClient } from "./services/smtp";
+import PageButton from "./components/PageButton/PageButton";
+import { useNavigate } from "react-router-dom";
+import ButtonContainer from "./components/ButtonContainer/ButtonContainer";
 
 function App() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
@@ -54,6 +58,10 @@ function App() {
     }
   };
 
+  const handleRouteToCalendarComponent = () => {
+    navigate('/calendar')
+  }
+
   return (
     <div className="app">
       <h2 className="">Email Sending Form</h2>
@@ -66,6 +74,7 @@ function App() {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            placeholder="johnDoe@gmail.com"
           ></input>
         </div>
 
@@ -78,11 +87,21 @@ function App() {
             required
             value={message}
             onChange={(e) => setMessage(e.target.value)}
+            placeholder="Enter Message"
           ></textarea>
         </div>
 
         <button>{loading ? "Loading..." : "Send Email 🚀"}</button>
       </form>
+
+      <div className="appPageButtons">
+        <ButtonContainer>
+          <PageButton
+            text="Try Out Calendar Invite Demo"
+            onClick={handleRouteToCalendarComponent}
+          />
+        </ButtonContainer>
+      </div>
     </div>
   );
 }
