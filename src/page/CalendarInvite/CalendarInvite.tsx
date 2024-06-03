@@ -24,14 +24,14 @@ const CalendarInvite = () => {
  
     try {
       await smtpexpressClient.sendApi.sendMail({
-        subject: "Project Update Meeting",
+        subject: "Calender Invite",
         message: "Please find the attached calendar invite.",
         sender: {
           email: import.meta.env.VITE_SMTP_PROJECT_SENDER_EMAIL,
           name: "Alex Johnson", // Full name of the sender for personalization
         },
         recipients: {
-          email: email, // Recipient email address entered in the form
+          email: email, 
           // name: "John Doe", // name of the recipient for personalization
         },
         calendarEvent: {
@@ -39,7 +39,7 @@ const CalendarInvite = () => {
           startDate: new Date(startDateInvite),
           endDate: new Date(endDateInvite),
           organizer: "alex.johnson@company.com", //  use the email of the event organizer
-          location: location, // remote or physical
+          location: location === "remote" ? url : meetingLocation,
           url: url, // meeting link
           description: description,
         },
