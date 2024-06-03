@@ -97,6 +97,16 @@ const CalendarInvite = () => {
         </div>
 
         <div>
+          <label>Description</label>
+          <input
+            type="text"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            placeholder="Event Description"
+          />
+        </div>
+
+        <div>
           <label>Date and Start Time</label> <br />
           <input
             required
@@ -154,16 +164,6 @@ const CalendarInvite = () => {
             />
           </div>
         )}
-
-        <div>
-          <label>Description</label>
-          <input
-            type="text"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            placeholder="Event Description"
-          />
-        </div>
         <button>{loading ? "Loading..." : "Send Calender Invite 🚀"}</button>
       </form>
 
